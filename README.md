@@ -4,21 +4,21 @@ Una empresa de transporte quiere administrar mejor las cargas que lleva un cami�
 
 Para eso requiere un sistema que le permita planificar qué cosas debe llevar el camión y si sobrepasa su capacidad. Por otro lado, las cosas que transporta tienen un nivel de peligrosidad. Este nivel es usado para impedir que cosas que superen cierto nivel de peligrosidad circulen en  rutas.
 
-## Atención - instrucciones para la entrega
-El método para obtener el total de los bultos y las consecuencias de la carga (ver abajo), se deben resolver sobre una copia del código de camion y cosas. 
+## Atención - instrucciones para la resolución
+Los métodos para obtener el total de los bultos y el de las consecuencias de la carga (ver abajo), se deben resolver sobre una copia del código de camion y cosas. 
 
-Por eso, les pedimos que se organicen de esta forma.
-- Resolver toda la parte 1 hasta "agregados al camión" en los archivos `camion.wlk` y `cosas.wlk`.
+Por eso, este ejercicio se deberá resolver de esta forma:
+- Hacer toda la parte 1 hasta "agregados al camión" en los archivos `camion.wlk` y `cosas.wlk`.
 - Armar dos tests, `cosasTest.wtest` y `camionTest.wtest`.
 - Copiar `camion.wlk` y `cosas.wlk` a `camion2.wlk` y `cosas2.wlk`.
 - Resolver "total de bultos" y "consecuencia de la carga" sobre `camion2.wlk` y `cosas2.wlk`. Así queda limpia la resolución de los puntos previos.
-- Hacer los tests de "total de bultos" y "consecuencia de la carga", en un archivo aparte, que haga `import` de `camion2.wlk` y `cosas2.wlk`. Así los tests también nos quedan separados.
+- Hacer los tests de "total de bultos" y "consecuencia de la carga", en un archivo aparte, que haga `import` de `camion2.wlk` y `cosas2.wlk`. Así los tests también quedan separados.
 
 ## Parte 1
 ### El camión
 
 - Se pide que se le pueda cargar y descargar cosas (de 1 a vez) y también cual es el peso total del camión, incluyendo su tara que es de 1000 kg. 
-- También se necesita conocer si los pesos de todas las cosas cargadas en el camión son números pares. 
+- También se necesita conocer si los pesos de todas las cosas cargadas en el camión son números impares. 
 - Debemos poder consultar si hay alguna cosa que pesa un determinado valor.
 - Para un mejor control del tipo de peligro que puede representar la carga, se debe poder obtener la primer cosa cargada que tenga un determinado nivel de peligrosidad 
 - Obtener todas las cosas que superan un determinado nivel de peligrosidad. 
