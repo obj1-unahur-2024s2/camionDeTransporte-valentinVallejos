@@ -1,0 +1,35 @@
+import camion2.*
+import cosas2.*
+
+
+
+describe "test camion cargando a bubleebee, antiAereo, 150kg arena y 80 ladrillos" {
+
+
+test "camion peso total" {
+    arena.peso(150)
+    paqueteDeLadrillos.cambiarCantDeLadrillos(80)
+    embalaje.embalarAlgo(paqueteDeLadrillos)
+
+    camion.cargar(bumblebee)
+    camion.cargar(bateriaAntiAerea)
+    camion.cargar(arena)
+    camion.cargar(embalaje) // al los ladrillos no se le suma 12 porque al estar en el embalaje no tinen cosecuncia
+
+    assert.equals(2400,camion.pesoTotal())
+}
+
+test "total de bultos" {
+    arena.peso(150)
+    paqueteDeLadrillos.cambiarCantDeLadrillos(80)
+    embalaje.embalarAlgo(paqueteDeLadrillos)
+
+    camion.cargar(bumblebee)
+    camion.cargar(bateriaAntiAerea)
+    camion.cargar(arena)
+    camion.cargar(embalaje)
+
+    assert.equals(7,camion.totalDeBultos())
+}
+
+}

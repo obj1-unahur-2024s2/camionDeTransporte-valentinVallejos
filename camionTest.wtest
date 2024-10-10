@@ -1,9 +1,161 @@
+import cosas.*
 import camion.*
 
-describe "group of test for camion" {
+describe "test camion con bubleebee, antiAereo, 150kg arena y 80 ladrillos" {
 
-  test "first test" {
-    assert.that(true)
+  test "peso total" {
+    bumblebee.transformar()
+    bateriaAntiAerea.cargarMisilles()
+    arena.peso(150)
+    paqueteDeLadrillos.cambiarCantDeLadrillos(80)
+    embalaje.embalarAlgo(paqueteDeLadrillos)
+
+    camion.cargar(bumblebee)
+    camion.cargar(bateriaAntiAerea)
+    camion.cargar(arena)
+    camion.cargar(embalaje)
+
+    assert.equals(2410,camion.pesoTotal())
+  }
+
+  test "no todos los pesos son impares" {
+    bumblebee.transformar()
+    bateriaAntiAerea.cargarMisilles()
+    arena.peso(150)
+    paqueteDeLadrillos.cambiarCantDeLadrillos(80)
+    embalaje.embalarAlgo(paqueteDeLadrillos)
+
+    camion.cargar(bumblebee)
+    camion.cargar(bateriaAntiAerea)
+    camion.cargar(arena)
+    camion.cargar(embalaje)
+
+    assert.notThat(camion.todosLosPesosSonInpares())
+  }
+
+   test "hay alguno q pese 80" {
+    bumblebee.transformar()
+    bateriaAntiAerea.cargarMisilles()
+    arena.peso(150)
+    paqueteDeLadrillos.cambiarCantDeLadrillos(80)
+    embalaje.embalarAlgo(paqueteDeLadrillos)
+
+    camion.cargar(bumblebee)
+    camion.cargar(bateriaAntiAerea)
+    camion.cargar(arena)
+    camion.cargar(embalaje)
+
+    assert.notThat(camion.algunoDePeso(80))
+  }
+
+  test "el objerto de  peligrosidad 30" {
+    bumblebee.transformar()
+    bateriaAntiAerea.cargarMisilles()
+    arena.peso(150)
+    paqueteDeLadrillos.cambiarCantDeLadrillos(80)
+    embalaje.embalarAlgo(paqueteDeLadrillos)
+
+    camion.cargar(bumblebee)
+    camion.cargar(bateriaAntiAerea)
+    camion.cargar(arena)
+    camion.cargar(embalaje)
+
+    assert.equals(bumblebee,camion.elQueTengaNivelDePeligro(30))
+  }
+
+  test "los objestos con peligrosidad superior a 20" {
+    bumblebee.transformar()
+    bateriaAntiAerea.cargarMisilles()
+    arena.peso(150)
+    paqueteDeLadrillos.cambiarCantDeLadrillos(80)
+    embalaje.embalarAlgo(paqueteDeLadrillos)
+
+    camion.cargar(bumblebee)
+    camion.cargar(bateriaAntiAerea)
+    camion.cargar(arena)
+    camion.cargar(embalaje)
+
+    assert.equals([bumblebee,bateriaAntiAerea],camion.losDePeligrosidadSuperiorA(20))
+  }
+
+
+test "no esta exedido de peso" {
+    bumblebee.transformar()
+    bateriaAntiAerea.cargarMisilles()
+    arena.peso(150)
+    paqueteDeLadrillos.cambiarCantDeLadrillos(80)
+    embalaje.embalarAlgo(paqueteDeLadrillos)
+
+    camion.cargar(bumblebee)
+    camion.cargar(bateriaAntiAerea)
+    camion.cargar(arena)
+    camion.cargar(embalaje)
+
+    assert.notThat(camion.estaExedidoDePeso())
+  }
+  
+
+  test "puede circular por ruta con peligrosidad maxima 110" {
+    bumblebee.transformar()
+    bateriaAntiAerea.cargarMisilles()
+    arena.peso(150)
+    paqueteDeLadrillos.cambiarCantDeLadrillos(80)
+    embalaje.embalarAlgo(paqueteDeLadrillos)
+
+    camion.cargar(bumblebee)
+    camion.cargar(bateriaAntiAerea)
+    camion.cargar(arena)
+    camion.cargar(embalaje)
+
+    assert.that(camion.puedeCircularPorRuta(110))
+
+  }
+
+  test "no puede circular por ruta con peligrosidad maxima 90" {
+    bumblebee.transformar()
+    bateriaAntiAerea.cargarMisilles()
+    arena.peso(150)
+    paqueteDeLadrillos.cambiarCantDeLadrillos(80)
+    embalaje.embalarAlgo(paqueteDeLadrillos)
+
+    camion.cargar(bumblebee)
+    camion.cargar(bateriaAntiAerea)
+    camion.cargar(arena)
+    camion.cargar(embalaje)
+
+    assert.notThat(camion.puedeCircularPorRuta(90))
+
+  }
+
+  test "existe alguno q ppese entre 150 y 170" {
+    bumblebee.transformar()
+    bateriaAntiAerea.cargarMisilles()
+    arena.peso(150)
+    paqueteDeLadrillos.cambiarCantDeLadrillos(80)
+    embalaje.embalarAlgo(paqueteDeLadrillos)
+
+    camion.cargar(bumblebee)
+    camion.cargar(bateriaAntiAerea)
+    camion.cargar(arena)
+    camion.cargar(embalaje)
+
+    assert.that(camion.algunoQuePeseEntre(150,170))
+
+  }
+    test "bumbleebee es el mas pesado" {
+    bumblebee.transformar()
+    bateriaAntiAerea.cargarMisilles()
+    arena.peso(150)
+    paqueteDeLadrillos.cambiarCantDeLadrillos(80)
+    embalaje.embalarAlgo(paqueteDeLadrillos)
+
+    camion.cargar(bumblebee)
+    camion.cargar(bateriaAntiAerea)
+    camion.cargar(arena)
+    camion.cargar(embalaje)
+
+    assert.equals(bumblebee,camion.elMasPesado())
+
   }
 
 }

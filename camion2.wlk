@@ -4,7 +4,10 @@ import cosas.*
 object camion{
     const carga = []
 
-    method cargar(algo) {carga.add(algo)}
+    method cargar(algo) {
+        carga.add(algo)
+        algo.consecunciaDeCarga()
+    }
 
     method pesoTotal() = carga.sum({x=>x.peso()}) + 1000
 
@@ -25,5 +28,7 @@ object camion{
     method algunoQuePeseEntre(numMin,numMax) = carga.any({x=>x.peso().between(numMin, numMax)}) 
 
     method elMasPesado() = carga.max({x=>x.peso()})
+
+    method totalDeBultos() = carga.sum({x=>x.bultos()})
 
 }
